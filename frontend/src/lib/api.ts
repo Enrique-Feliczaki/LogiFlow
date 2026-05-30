@@ -1,5 +1,6 @@
 import { Cliente, ClienteFormData } from "@/types/cliente";
 import { Produto, ProdutoFormData } from "@/types/produto";
+import { Pedido, PedidoPayload } from "@/types/pedido";
 
 const BASE = "http://localhost:3001";
 
@@ -34,5 +35,14 @@ export const api = {
       request<Produto>(`/produtos/${id}`, { method: "PUT", body: JSON.stringify(data) }),
     remove: (id: string) =>
       request<void>(`/produtos/${id}`, { method: "DELETE" }),
+  },
+  pedidos: {
+    list: () => request<Pedido[]>("/pedidos"),
+    create: (data: PedidoPayload) =>
+      request<Pedido>("/pedidos", { method: "POST", body: JSON.stringify(data) }),
+    update: (id: string, data: { status?: string; categoria?: string }) =>
+      request<Pedido>(`/pedidos/${id}`, { method: "PUT", body: JSON.stringify(data) }),
+    remove: (id: string) =>
+      request<void>(`/pedidos/${id}`, { method: "DELETE" }),
   },
 };

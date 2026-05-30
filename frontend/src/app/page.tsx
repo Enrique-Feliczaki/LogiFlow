@@ -33,6 +33,12 @@ export default function Home() {
             description="Gerencie o catálogo de produtos, preços e estoque disponível."
             icon="📦"
           />
+          <ModuleCard
+            href="/pedidos"
+            title="Pedidos"
+            description="Crie pedidos vinculando clientes e produtos, acompanhe o status."
+            icon="🛒"
+          />
         </div>
       </main>
     </div>
