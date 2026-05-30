@@ -27,6 +27,12 @@ export default function Home() {
             description="Cadastre, edite e gerencie a carteira de clientes da LogiFlow."
             icon="👥"
           />
+          <ModuleCard
+            href="/produtos"
+            title="Produtos"
+            description="Gerencie o catálogo de produtos, preços e estoque disponível."
+            icon="📦"
+          />
         </div>
       </main>
     </div>

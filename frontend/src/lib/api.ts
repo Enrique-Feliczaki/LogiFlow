@@ -1,4 +1,5 @@
 import { Cliente, ClienteFormData } from "@/types/cliente";
+import { Produto, ProdutoFormData } from "@/types/produto";
 
 const BASE = "http://localhost:3001";
 
@@ -24,5 +25,14 @@ export const api = {
       request<Cliente>(`/clientes/${id}`, { method: "PUT", body: JSON.stringify(data) }),
     remove: (id: string) =>
       request<void>(`/clientes/${id}`, { method: "DELETE" }),
+  },
+  produtos: {
+    list: () => request<Produto[]>("/produtos"),
+    create: (data: ProdutoFormData) =>
+      request<Produto>("/produtos", { method: "POST", body: JSON.stringify(data) }),
+    update: (id: string, data: Partial<ProdutoFormData>) =>
+      request<Produto>(`/produtos/${id}`, { method: "PUT", body: JSON.stringify(data) }),
+    remove: (id: string) =>
+      request<void>(`/produtos/${id}`, { method: "DELETE" }),
   },
 };
